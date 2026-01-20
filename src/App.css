@@ -1,0 +1,268 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e6e6e6;
+    width: 100%;
+    min-height: 80vh;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.calculator-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
+    padding: 12px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 900px;
+}
+
+.history {
+    flex: 1 1 200px;
+    min-height: 150px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    word-break: break-word;
+}
+
+.history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.clear-history-btn {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.8em;
+}
+
+.clear-history-btn:disabled {
+    background-color: #ffcccc;
+    cursor: not-allowed;
+}
+
+.history-list {
+    max-height: 450px;
+    overflow-y: auto;
+}
+
+.history-item {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9em;
+    align-items: flex-start;
+}
+
+.history-id {
+    font-weight: bold;
+}
+
+.history-expression {
+    word-break: break-word;
+    overflow: hidden;
+}
+
+.history-time {
+    color: #888;
+    font-size: 0.8em;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.calculator {
+    flex: 1 1 300px;
+    max-width: 350px;
+    width: 100%;
+    border: 1px solid #999;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.display-area {
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: right;
+    width: 100%;
+    overflow: hidden;
+    word-wrap: break-word;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+
+.display-area .input {
+    font-size: 1.2em;
+    color: #aaa;
+    min-height: 20px;
+    white-space: nowrap;
+    overflow-x: auto;
+    order: 1;
+    padding-right: 8px;
+}
+
+.display-area .result {
+    font-size: 2em;
+    font-weight: bold;
+    min-height: 35px;
+    word-break: break-all;
+    order: 2;
+    padding-right: 8px;
+
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+button {
+    padding: 18px 0;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.1s, box-shadow 0.1s;
+    font-weight: 500;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.clear-btn {
+    background-color: #ff8c00;
+    color: white;
+}
+
+.clear-btn:hover {
+    background-color: #cc7000;
+}
+
+.clear-CE {
+    background-color: #888888;
+    color: white;
+}
+
+.clear-CE:hover {
+    background-color: #aaa;
+}
+
+.operator {
+    background-color: #a0a0a0;
+    color: white;
+}
+
+.operator:hover {
+    background-color: #888888;
+}
+
+.equal-btn {
+    background-color: #4682b4;
+    color: white;
+}
+
+.equal-btn:hover {
+    background-color: #386a92;
+}
+
+.zero-btn {
+    grid-column: span 2;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .history {
+        width: 90%;
+        max-height: 300px;
+        margin-bottom: 20px;
+    }
+
+    .calculator {
+        width: 90%;
+    }
+
+    .display-area .input {
+        font-size: 1em;
+    }
+
+
+    .display-area .result {
+        font-size: 1.5em;
+        padding-right: 6px;
+    }
+
+    button {
+        font-size: 1em;
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .display-area .input {
+        font-size: 0.9em;
+    }
+
+    .display-area .result {
+        font-size: 1.2em;
+        padding-right: 4px;
+
+    }
+
+    button {
+        font-size: 0.9em;
+        padding: 10px 0;
+    }
+
+    .zero-btn {
+        grid-column: span 2;
+    }
+}
